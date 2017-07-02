@@ -17,4 +17,18 @@ if __name__ == "__main__":
     x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1)
     model = Lasso()
     alpha_can = np.logspace(-3, 2, 10)
-    lasso_model = GridSearchCV(model, param_grid=('alpha':
+    lasso_model = GridSearchCV(model, param_grid={'alpha': alpha_can}, cv = 5)
+    lasso_model.fit(x_train, y_train)
+    print '验证参数: \n', lasso_model.best_params_
+
+    y_hat = lasso_model.predict(np.array(x_test))
+    mse = np.average((y_hat - np.array(y_test)) **2)
+    rmse = np.sqrt(mse)
+    print mse, rmse
+
+    t = np.arange(len(x_test))
+    plt.plot(t, y_test, 'r-', linewidth = 2, label = 'Test')
+    plt.plot(t, y_hat, 'g-', linewidth = 2, label = 'Predict')
+    plt.legend(loc = 'upper right')
+    plt.grid()
+    plt.show()
