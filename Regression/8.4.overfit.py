@@ -14,4 +14,5 @@ if __name__ == "__main__":
     x = np.linspace(0, 6, N) + np.random.randn(N)
     x = np.sort(x)
     y = x ** 2 - 4 * x -3 + np.random.randn(N)
-
+    x.shape = -1, 1
+    y.shape = -1, 1
