@@ -16,3 +16,5 @@ if __name__ == "__main__":
     y = x ** 2 - 4 * x -3 + np.random.randn(N)
     x.shape = -1, 1
     y.shape = -1, 1
+
+    model_1 =
