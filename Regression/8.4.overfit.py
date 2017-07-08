@@ -17,4 +17,10 @@ if __name__ == "__main__":
     x.shape = -1, 1
     y.shape = -1, 1
 
-    model_1 =
+    model_1 = Pipeline([
+        ('poly', PolynomialFeatures()),
+        ('linear', LinearRegression(fit_intercept = False))])
+    model_2 = Pipeline([
+        ('poly', PolynomialFeatures()),
+        ('linear', RidgeCV(alphas = np.logspace(-3, 2, 100), fir_intercept = False))])
+    models = model_1, model_2
