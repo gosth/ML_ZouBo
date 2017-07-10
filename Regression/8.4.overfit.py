@@ -24,3 +24,8 @@ if __name__ == "__main__":
         ('poly', PolynomialFeatures()),
         ('linear', RidgeCV(alphas = np.logspace(-3, 2, 100), fir_intercept = False))])
     models = model_1, model_2
+    mpl.rcParams['font.sans-serif'] = [u'simHei']
+    mpl.rcParams['axes.unicode_minus'] = False
+    np.set_printoptions(suppress = True)
+
+    plt.figure(figsize=(9, 11), facecolor = 'w')
