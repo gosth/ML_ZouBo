@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 from sklearn.pipeline import Pipeline
 import matplotlib as mpl
 
-
 if __name__ == "__main__":
     np.random.seed(0)
     N = 9
